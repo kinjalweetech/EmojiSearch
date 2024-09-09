@@ -1,18 +1,19 @@
-import EmojiPicker from 'emoji-picker-react'
+// import EmojiPicker from 'emoji-picker-react'
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import EmojiFetch from './EmojiPicker'
 
 function Navigation() {
   return (
-    <div>
+    <>
       <BrowserRouter>
             <Routes>
-                <Route path='/' element={<EmojiPicker/>}>
+                <Route path='/' element={<EmojiFetch/>}>
 
                 </Route>
             </Routes>
       </BrowserRouter>
-    </div>
+    </>
   )
 }
 

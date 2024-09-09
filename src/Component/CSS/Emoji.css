@@ -1,0 +1,31 @@
+/* src/App.css */
+.emoji-container  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+   height: 150vh;
+  width: 150vh;
+  margin:auto;
+}
+.emoji-container h1{
+  font-size: x-large;
+} 
+.selected-emoji {
+  font-size: 4rem;
+  margin-top: 2px;
+  /* padding-bottom: 2%; */
+}
+
+.emoji-list {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.emoji-list > * {
+  margin: 0 10px;
+}
+
+  

@@ -1,20 +1,50 @@
+// 
+
+
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import EmojiPicker from 'emoji-picker-react';
-import { setSelectedEmoji } from '../features/searchSlice';
+import { EmojiPicker as EmojiSearch } from "react-emoji-search"; // Assuming you're using this package
+import { useDispatch, useSelector } from 'react-redux';
+import { setEmoji } from '../Component/Redux/SearchSlice';
+import '../Component/CSS/Emoji.css';
 
-const EmojiPickerComponent = () => {
+const EmojiPicker = () => {
   const dispatch = useDispatch();
+  const selectedEmoji = useSelector((state) => state.emoji.selectedEmoji);
 
-  const handleEmojiClick = (event, emojiObject) => {
-    dispatch(setSelectedEmoji(emojiObject.emoji));
+  const handleEmojiClick = (emoji) => {
+    dispatch(setEmoji(emoji)); // Dispatch the selected emoji to the Redux store
   };
 
   return (
-    <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-      <EmojiPicker onEmojiClick={handleEmojiClick} />
+    <div className="emoji-container">
+      <h1>Emoji Picker</h1>
+
+      {/* Display selected emoji */}
+      {selectedEmoji && (
+        <div className="selected-emoji">
+          <h2>Selected Emoji: {selectedEmoji}</h2>
+        </div>
+      )}
+
+      {/* Emoji Picker */}
+      <EmojiSearch
+        set="apple"
+        emojiSize={24}
+        emojiSpacing={8}
+        emojiVersion={12.0}
+        onEmojiClick={handleEmojiClick} // Event handler for emoji click
+        styles={{
+          backgroundColor: "#2e4960",
+          indicatorColor: "#b04c2d",
+          fontColor: "lightgrey",
+          searchBackgroundColor: "#263d51",
+          tabsFontColor: "#8cdce4",
+          searchFontColor: "lightgrey",
+          skinTonePickerBackgroundColor: "#284155",
+        }}
+      />
     </div>
   );
 };
 
-export default EmojiPickerComponent;
+export default EmojiPicker;

@@ -1,14 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
 import Navigation from './Component/Navigation';
-// import Navigation from './Component/Navigate.js/Navigation';
-// import { Navigate } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './Component/Redux/Store';
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
         <Navigation/>
-    </div>
+    </Provider>
+    
   )
 }
 export default App;
